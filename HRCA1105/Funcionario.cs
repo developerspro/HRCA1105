@@ -10,13 +10,13 @@ namespace HRCA1105
     {
         protected int registro;
         protected double salario;
-        protected double inss;
+        //protected double inss;
         protected double salarioLiquido;
 
 
-        public void cadastrarFuncionario()
+        public override void cadastrar()
         {
-            this.cadastrar();
+            base.cadastrar();
             Console.Write("Digite o registro:");
             this.registro = int.Parse(Console.ReadLine());
             Console.WriteLine("Digite o Salario");
@@ -34,15 +34,17 @@ namespace HRCA1105
                 this.salario = valor;
             }
         }
-
-        public void calculaDescontoInss()
+       
+        public double calculaDescontoInss()
         {
-            this.inss = this.salario * 0.11;
+            double inss;
+           inss = this.salario * 0.11;
+            return inss;
            
         }
         public void mostraDescontoInss()
         {
-            Console.WriteLine("Desconto:" + this.inss);
+            Console.WriteLine("Desconto:" + this.calculaDescontoInss());
         }
 
         public void mostraSalarioBruto()
@@ -54,7 +56,7 @@ namespace HRCA1105
         {
             this.calculaDescontoInss();
             this.mostraDescontoInss();
-            this.salarioLiquido = this.salario - this.inss;
+            this.salarioLiquido = this.salario - this.calculaDescontoInss();
 
             Console.WriteLine("Salario Liquido:{0}", this.salarioLiquido);
         }
@@ -69,7 +71,6 @@ namespace HRCA1105
         {
             this.mostraNome();
             this.mostraSalarioBruto();
-            //this.mostraDescontoInss();
             this.mostraSalarioLiquido();
         }
     }

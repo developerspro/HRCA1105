@@ -10,9 +10,17 @@ namespace HRCA1105
     {
         static void Main(string[] args)
         {
-         
+
+            ClienteVip vp = new ClienteVip();
+
+            vp.cadastrar();
+            vp.exibirCodigo();
+            Console.ReadKey();
+
+
+
             Funcionario f = new Funcionario();
-            f.cadastrarFuncionario();
+            f.cadastrar();
             f.exibirFuncionario();
             Console.WriteLine("--- fim Funcionario ---");
             Console.ReadKey();

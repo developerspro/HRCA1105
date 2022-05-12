@@ -15,7 +15,7 @@ namespace HRCA1105
         public string dataNasc;
         // falar sobre retorno.
 
-        public void cadastrar()
+        public virtual void cadastrar()
         {
             Console.WriteLine("Digite o nome");
             nome = Console.ReadLine();

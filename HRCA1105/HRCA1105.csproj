@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cliente.cs" />
+    <Compile Include="ClienteVip.cs" />
     <Compile Include="Coordenador.cs" />
     <Compile Include="Funcionario.cs" />
     <Compile Include="Gerente.cs" />
