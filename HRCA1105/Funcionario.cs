@@ -8,20 +8,34 @@ namespace HRCA1105
 {
     class Funcionario : Pessoa
     {
-        public int registro;
+        protected int registro;
         protected double salario;
-        public double inss;
+        protected double inss;
         protected double salarioLiquido;
 
-        
 
+        public void cadastrarFuncionario()
+        {
+            this.cadastrar();
+            Console.Write("Digite o registro:");
+            this.registro = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o Salario");
+            registraSalario(double.Parse(Console.ReadLine()));
+
+        }
 
         public void registraSalario(double valor)
         {
-            this.salario = valor;
+            if (valor < 0)
+            {
+                this.salario = 0;
+            } else
+            {
+                this.salario = valor;
+            }
         }
 
-        public void descontoInss()
+        public void calculaDescontoInss()
         {
             this.inss = this.salario * 0.11;
            
@@ -29,10 +43,6 @@ namespace HRCA1105
         public void mostraDescontoInss()
         {
             Console.WriteLine("Desconto:" + this.inss);
-        }
-        public void mostraEmail()
-        {
-            Console.WriteLine("E-mail:{0}",this.email);
         }
 
         public void mostraSalarioBruto()
@@ -42,7 +52,10 @@ namespace HRCA1105
 
         public void mostraSalarioLiquido()
         {
+            this.calculaDescontoInss();
+            this.mostraDescontoInss();
             this.salarioLiquido = this.salario - this.inss;
+
             Console.WriteLine("Salario Liquido:{0}", this.salarioLiquido);
         }
 
@@ -56,7 +69,7 @@ namespace HRCA1105
         {
             this.mostraNome();
             this.mostraSalarioBruto();
-            this.mostraDescontoInss();
+            //this.mostraDescontoInss();
             this.mostraSalarioLiquido();
         }
     }

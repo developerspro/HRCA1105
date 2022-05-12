@@ -8,6 +8,6 @@ namespace HRCA1105
 {
     class Coordenador :Funcionario
     {
-
+        public string equipe;
     }
 }
